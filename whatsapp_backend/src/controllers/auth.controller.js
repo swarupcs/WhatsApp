@@ -1,31 +1,41 @@
-export const register = async(req, res, next) => {
-    try {
-       res.send(req.body) 
-    } catch (error) {
-        next(error);
-    }
-}
+import { createUser } from "../services/auth.service.js";
 
-export const login = async(req, res, next) => {
-    try {
-        
-    } catch (error) {
-        next(error);
-    }
-}
+export const register = async (req, res, next) => {
+  try {
+    // res.send(req.body);
+    const { name, email, picture, status, password } = req.body;
+    //    console.log(name, email, picture, status, password);
+    const newUser = await createUser({
+      name,
+      email,
+      picture,
+      status,
+      password,
+    });
 
-export const logout = async(req, res, next) => {
-    try {
-        
-    } catch (error) {
-        next(error);
-    }
-}
+    res.json(newUser);
+  } catch (error) {
+    next(error);
+  }
+};
 
-export const refreshToken = async(req, res, next) => {
-    try {
-        
-    } catch (error) {
-        next(error);
-    }
-}
+export const login = async (req, res, next) => {
+  try {
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const logout = async (req, res, next) => {
+  try {
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const refreshToken = async (req, res, next) => {
+  try {
+  } catch (error) {
+    next(error);
+  }
+};
