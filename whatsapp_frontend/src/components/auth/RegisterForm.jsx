@@ -72,9 +72,15 @@ function RegisterForm() {
           />
           {/* If we have an error */}
           {
+<<<<<<< HEAD
             error ? ( <div>
               <p className="text-red-400">{error}</p>
             </div> ) : null
+=======
+            error ? <div>
+              <p className="text-red-400">{error}</p>
+            </div> : null
+>>>>>>> d3514bc (Finishing sign up form markup and styles)
           }
           {/* Submit button */}
           <button 
