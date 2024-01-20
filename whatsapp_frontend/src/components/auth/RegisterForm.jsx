@@ -52,7 +52,7 @@ function RegisterForm() {
           <AuthInput
             name="email"
             type="text"
-            placeholder="Email Address"
+            placeholder="Email address"
             register={register}
             error={errors?.email?.message}
           />
@@ -72,9 +72,9 @@ function RegisterForm() {
           />
           {/* If we have an error */}
           {
-            error ? <div>
+            error ? ( <div>
               <p className="text-red-400">{error}</p>
-            </div> : null
+            </div> ) : null
           }
           {/* Submit button */}
           <button 
