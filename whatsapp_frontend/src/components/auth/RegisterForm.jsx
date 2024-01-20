@@ -71,11 +71,11 @@ function RegisterForm() {
             error={errors?.password?.message}
           />
           {/* If we have an error */}
-          {error ? (
-            <div>
+          {
+            error ? <div>
               <p className="text-red-400">{error}</p>
-            </div>
-          ) : null}
+            </div> : null
+          }
           {/* Submit button */}
           <button 
           className="w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none hover:bg-green_2 shadow-lg cursor-pointer transition ease-in duration-300"
