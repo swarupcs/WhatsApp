@@ -8,6 +8,7 @@ export const register = async (req, res, next) => {
     // res.send(req.body);
     const { name, email, picture, status, password } = req.body;
     //    console.log(name, email, picture, status, password);
+    // console.log(req.body);
     const newUser = await createUser({
       name,
       email,
@@ -38,6 +39,7 @@ export const register = async (req, res, next) => {
         email: newUser.email,
         picture: newUser.picture,
         status: newUser.status,
+        access_token,
       },
     });
   } catch (error) {
@@ -72,6 +74,7 @@ export const login = async (req, res, next) => {
         email: user.email,
         picture: user.picture,
         status: user.status,
+        access_token,
       },
     });
   } catch (error) {
@@ -112,6 +115,7 @@ export const refreshToken = async (req, res, next) => {
         email: user.email,
         picture: user.picture,
         status: user.status,
+        access_token,
       },
     });
   } catch (error) {
