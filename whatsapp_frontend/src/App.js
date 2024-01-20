@@ -4,7 +4,8 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import { useSelector } from "react-redux";
 function App() {
-  const { user }= useSelector((state) => state.user);
+  const { user } = useSelector((state) => ({ ...state}));
+  console.log(user);
   // console.log(user);
 
   return (
