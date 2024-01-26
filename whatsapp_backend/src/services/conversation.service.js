@@ -42,3 +42,26 @@ export const populateConversation = async(id, fieldToPopulate, fieldsToRemove) =
     }
     return populatedConvo;
 }
+
+export const getUserConversations = async(user_id) => {
+    let conversations;
+    await ConversationModel.find({
+        users: { $elemMatch: { $eq: user_id}},
+    })
+    .populate('users','-password')
+    .populate('admin', '-password')
+    .populate('latestMessage')
+    .sort({ updatedAt: -1})
+    .then(async (results) => {
+        results = await UserModel.populate(results, {
+            path: "latestMessage.sender",
+            select: "name email picture status",
+        });
+        conversations = results;
+    })
+    .catch((err) => {
+        throw createHttpError.BadRequest("Oops...Something went wrong !")
+    });
+    return conversations;
+
+}
