@@ -77,12 +77,12 @@ function LoginForm() {
             ) : (
               "Sign in"
             )}
-          </button>
+          </button> 
           {/* Sign in link */}
           <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
             <span>You do not have an account</span>
             <Link
-              href="/register"
+              to="/register"
               className="hover:underline cursor-pointer transition ease-in duration-300"
             >
               Sign up
